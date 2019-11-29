@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<title> HOME</title>
+</head>
+<body>
+<h1> Search page</h1>
+
+<form method="post">
+
+	<input type="text" name="search">
+	<input type="submit" value="search">
+	<input type="submit" name="clear" value="clear">
+	<a href= {{ url_for('index') }}><p>add more docs</p></a>
+</form>
+
+<!-- <p>{{doc_dict}}</p>
+<p>{{word_dict}}</p> -->
+
+<!-- <p>{{res}}</p> -->
+
+{% if res: %}
+{% for i in range(10) %}
+	<p>{{res[i]}}</p>
+{% endfor %}
+{% endif %}
+<!-- {% for x in res %}
+	<p>{{x}}</p>
+{% endfor %} -->
+
+</body>
+</html>
