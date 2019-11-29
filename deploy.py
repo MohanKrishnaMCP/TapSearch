@@ -7,13 +7,16 @@ def del_doc():
 	doc_dict = doc_dict.clear()
 	doc_dict = {}
 
+
 def indexer(full_doc):
 	if not bool(doc_dict):
 		i = 0
 	else:
 		i = max(doc_dict) + 1
+
 	doc_dict[i] = []
 	full_doc = full_doc.split('\n')
+
 	for j in range(len(full_doc)):
 		if full_doc[j] == '\r' and full_doc[j+1] == '\r':
 			i += 1
@@ -29,6 +32,7 @@ doc_dict = {}
 app = Flask(__name__)
 app.secret_key = "TapChief"
 
+
 @app.route("/", methods=["POST", "GET"])
 def index():
 	
@@ -40,6 +44,7 @@ def index():
 			return redirect(url_for("search_page",))
 
 	return render_template("inputpage.html")
+
 
 @app.route("/search_page", methods=["POST", "GET"])
 def search_page():
@@ -61,10 +66,8 @@ def search_page():
 				search = request.form["search"]
 				index_val = func.search_res(search, word_inv_index)
 				res = []
-				# res = res.clear()
 				for i in range(len(index_val)):
 					res.append(doc_dict[index_val[i]])
-				#res = [item.replace('\r', '\n') for item in res]
 				print(res)
 				if len(res) > 10:
 					l = 10
@@ -76,13 +79,11 @@ def search_page():
 				del_doc()
 				return redirect(url_for("index"))
 
-			# if bool(request.form["add_doc"]):
-			# 	return redirect(url_for("index"))
-
 		return render_template("seachpage.html")
 
 	else:
 		return redirect(url_for("index"))
+
 
 print(doc_dict)
 

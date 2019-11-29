@@ -2,6 +2,7 @@
 {% block title %}Search page{% endblock %}
 
 {% block content%}
+
 <br><br>
 
 <form method="post">
@@ -22,7 +23,6 @@
 		</div>
 	</div>
 	<br><br>
-	<!-- <input class="btn" style="width: 10%" type="submit" value="search"> -->
 
 	{% if res: %}
 	{% for i in range(l) %}
@@ -34,15 +34,5 @@
 
 
 </form>
-
-<!-- <p>{{doc_dict}}</p>
-<p>{{word_dict}}</p> -->
-
-<!-- <p>{{res}}</p> -->
-
-
-<!-- {% for x in res %}
-	<p>{{x}}</p>
-{% endfor %} -->
 
 {% endblock %}
