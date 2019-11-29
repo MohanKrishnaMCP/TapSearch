@@ -50,7 +50,7 @@ def search_res(search, word_inv_index):
 	index_val = []
 
 	for word in word_inv_index:
-		if word == search:
+		if word == search and word != '<br>':
 			print(word_inv_index[word])
 			word_inv_index[word].sort(key=last, reverse=True)
 			for i in range(len(word_inv_index[word])):
