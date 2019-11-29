@@ -1,17 +1,38 @@
-<!doctype html>
-<html>
-<head>
-	<title> HOME</title>
-</head>
-<body>
-<h1> Search page</h1>
+{% extends "base.html" %}
+{% block title %}Search page{% endblock %}
+
+{% block content%}
+<br><br>
 
 <form method="post">
 
-	<input type="text" name="search">
-	<input type="submit" value="search">
-	<input type="submit" name="clear" value="clear">
-	<a href= {{ url_for('index') }}><p>add more docs</p></a>
+
+	<h2>Search:</h2>
+
+	<input class="form-control text-center" type="text" style=" width: 80%; margin: auto auto" placeholder= "enter search word here" name="search">
+
+	<br>
+	<div class="row">
+		<div class="col-sm-6" style="padding: 0px">
+			<input class="btn" style="float: right; margin-right: 0px" type="submit" name="clear" value="clear the documents"><br>
+		</div>
+		
+		<div class="col-sm-6" style="padding:0px">
+			<a href= {{ url_for('index') }} style="float: left; margin-left: 0px;"  class="btn">add more documents</a>
+		</div>
+	</div>
+	<br><br>
+	<!-- <input class="btn" style="width: 10%" type="submit" value="search"> -->
+
+	{% if res: %}
+	{% for i in range(l) %}
+	{% autoescape false %}
+		<p style="text-align: justify;"><strong>document{{i+1}}:</strong> <br>{{res[i]| replace("[", "")| replace("]", "")| replace("'", "")}}</p>
+	{% endautoescape %}
+	{% endfor %}
+	{% endif %}
+
+
 </form>
 
 <!-- <p>{{doc_dict}}</p>
@@ -19,14 +40,9 @@
 
 <!-- <p>{{res}}</p> -->
 
-{% if res: %}
-{% for i in range(10) %}
-	<p>{{res[i]}}</p>
-{% endfor %}
-{% endif %}
+
 <!-- {% for x in res %}
 	<p>{{x}}</p>
 {% endfor %} -->
 
-</body>
-</html>
+{% endblock %}

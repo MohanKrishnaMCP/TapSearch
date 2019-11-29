@@ -1,16 +1,16 @@
-<!doctype html>
-<html>
-<head>
-	<title>HOME</title>
-</head>
-<body>
-<h1> Home page</h1>
 
+{% extends "base.html" %}
+{% block title %}Home page{% endblock %}
+
+{% block content%}
+<br><br>
 <form method="post">
-	<h4>Enter text</h4>
-	<textarea name="content" rows="10" cols="30"></textarea>
+	<div class="text-center">
+	<h4>Enter the paragraphs here:</h4><br>
+	<textarea name="content" rows="15" cols="70"></textarea>
   <br>
-	<input type="submit" value="Index">
+	<input class="btn" type="submit" value="Index the paragraph">
+</div>
 <br><br>
 
 </form>
@@ -19,9 +19,9 @@
 	<p>{{doc_dict[x]}}</p>
 {% endfor %}
 
+{% endblock %}
+
 <!-- {% for x in word_dict%}
 	<p>{{x, word_dict[x]}}</p>
 {% endfor %} -->
 
-</body>
-</html>
