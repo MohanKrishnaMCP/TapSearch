@@ -9,6 +9,7 @@ Installation:
 + Clone repo and cd to the folder
 + Install requirements using: `pip install -r requirements.txt` in the cmd
 + Run `Python deploy.py` in the cmd (will not run in python IDLE, custom modules are used)
++ Enter the displayed url in the browser. url will be similar to `http://127.0.0.1:5000/`
 
 Instruction:
 ------------
